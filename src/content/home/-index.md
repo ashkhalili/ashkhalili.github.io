@@ -1,9 +1,9 @@
 ---
-image: "@assets/astrogon-star.svg"
-imageAlt: Astrogon logo
-title: Astrogon
-content: A rapidly-customizable template for a blog, documentation, and more.
+image: "@assets/ashkan.png"
+imageAlt: Ashkan Khalili
+title: Ashkan Khalili
+content: Glaucoma consultant, East Sussex Healthcare NHS Trust (ESHT)
 button:
-  label: See the Code
-  link: https://github.com/astrogon/astrogon
+  label: Contact Me
+  link: mailto:a.khalili@nhs.net
 ---
