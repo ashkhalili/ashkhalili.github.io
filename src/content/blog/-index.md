@@ -1,4 +1,4 @@
 ---
-title: Blog Posts
-description: The blog of Jane and John Doe
+title: Eye Health & Ophthalmology
+description: Articles on glaucoma, cataract surgery, and eye health by Dr. Ashkan Khalili
 ---

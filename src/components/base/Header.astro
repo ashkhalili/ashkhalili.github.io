@@ -16,32 +16,16 @@ const menu = [
     url: "/about",
   },
   {
-    name: "Docs",
-    url: "/docs",
+    name: "Publications",
+    url: "/portfolio",
   },
   {
     name: "Blog",
     url: "/blog",
   },
   {
-    name: "Recipes",
-    url: "/recipes",
-  },
-  {
-    name: "Poetry",
-    url: "/poetry",
-  },
-  {
-    name: "Index Cards",
+    name: "Card",
     url: "/index-cards",
-  },
-  {
-    name: "Authors",
-    url: "/authors",
-  },
-  {
-    name: "Portfolio",
-    url: "/portfolio",
   },
 ];
 ---
@@ -101,3 +85,14 @@ const menu = [
     </div>
   </nav>
 </header>
+
+<script>
+  document.querySelectorAll("#nav-menu a").forEach((link) => {
+    link.addEventListener("click", () => {
+      const toggle = document.getElementById(
+        "nav-toggle",
+      ) as HTMLInputElement | null;
+      if (toggle) toggle.checked = false;
+    });
+  });
+</script>

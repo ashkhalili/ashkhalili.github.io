@@ -1,16 +1,11 @@
 ---
-import type { IndexCardsEntry } from "@/types";
 import BaseLayout from "@components/base/BaseLayout.astro";
-import Swiper from "@components/index-cards/Swiper";
-
-interface Props {
-  entry: IndexCardsEntry;
-}
-
-const { entry } = Astro.props;
-const { title, description, cards } = entry.data;
+import BusinessCard from "@components/index-cards/BusinessCard";
 ---
 
-<BaseLayout title={title} description={description}>
-  <Swiper {cards} client:load />
+<BaseLayout
+  title="Contact Card"
+  description="Dr. Ashkan Khalili — Glaucoma Consultant. Contact details and social QR codes."
+>
+  <BusinessCard client:load />
 </BaseLayout>
