@@ -45,7 +45,7 @@ const BusinessCard = () => (
           <div className="glass rounded-2xl overflow-hidden shadow-lg intersect:animate-fadeUp opacity-0">
             {/* Card Header */}
             <div className="bg-gradient-to-r from-slate-700 to-slate-900 dark:from-slate-800 dark:to-slate-950 px-8 py-6 text-white">
-              <h1 className="text-2xl font-bold tracking-tight mb-1">
+              <h1 className="text-2xl font-bold tracking-tight mb-1 !text-white">
                 Dr. Ashkan Khalili
               </h1>
               <p className="text-slate-300 text-sm font-medium tracking-widest uppercase">
