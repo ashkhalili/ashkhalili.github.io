@@ -1,48 +1,53 @@
 ---
-title: I'm Ashkan Khalili!
-description: this is meta description
+title: Ashkan Khalili
+description: Glaucoma and cataract consultant offering advanced, evidence-based ophthalmic care driven by world-class research and surgical expertise.
 image: "@assets/profile/ashkan-khalili.jpg"
 draft: false
 ---
-# Personal Details
-**Name:** Ashkan KHALILI  
-**Mobile:** [0790 854 0070](tel:+447908540070)  
-**E-mail:** [a.khalili@nhs.net](mailto:a.khalili@nhs.net)  
-**GMC registration:** 6093082  
 
-## Qualifications
-**Completion of Clinical Training in Ophthalmology (CCT)**  
-London Deanery & GMC — *Aug 2019*
+# Advanced Glaucoma & Cataract Care: Driven by Elite Research
 
-**FRCOphth**  
-Royal College of Ophthalmology — *2017*  
-Part 1 2013, written 2016, viva 2017  
-(All passed first time)
+## Mr. Khalili: Your Consultant for High-Skill Ophthalmic Solutions
 
-**Refraction certificate**  
-Royal College of Ophthalmology — *2014*
+Choosing the right eye consultant means looking beyond standard clinical qualifications. Mr. Khalili offers a unique blend of world-class surgical skill and cutting-edge scientific expertise, ensuring your treatment is personalized, proactive, and rooted in the latest advancements.
 
-**PhD**  
-UCL Institute of Ophthalmology & School of Pharmacy — *2007–2011*
+### A Foundation in World-Class Ophthalmic Expertise
 
-**MRCS part 1 & 2**  
-Royal College of Surgeons — *2006*
+Mr. Khalili's dedication to providing outstanding, high-skill care is underpinned by an exceptional blend of clinical training and academic distinction:
 
-**MD**  
-Shiraz University of Medical Sciences, Iran — *1994–2001*
+#### Elite Clinical & Surgical Training
 
-## Clinical Honours, Awards and Prizes
-- **Moorfields’ star award** — Nov 2015  
-  (The best employee of the month, based on patient’s feedback)
-- **Life-changing research video contest, runner up** — May 2013 
-  (ARVO)
-- **Ophthalmology Trainees’ Prize** — June 2009
-  for best paper presentation
-  (Royal Society of Medicine)
-- **Abbey 1-UCL Excellence/Endeavour Award** — June 2008 (University College London)
-- **MD Dissertation Award** — Sept 2001 (Shiraz Medical School)
+- **North Thames Training Programme:** Completed prestigious and rigorous surgical and clinical training across the renowned hospitals of the North Thames region.
 
-## Research Honours, Awards and Prizes
-- **Best PhD thesis in 2011 (A M Cook prize)** — Nov 2012 (UCL School of Pharmacy)
-- **Alcon ISER-Travel Grant Award** — July 2012
-- 
+- **National Institute for Health and Care Research (NIHR) Academic Clinical Fellow (ACF):** Became the first NIHR ACF in Ophthalmology in London, combining clinical excellence with structured research leadership early in his career.
+
+- **Double Glaucoma Fellowship:** Completed two highly sought-after fellowships at the largest eye centres in Europe, focusing on the full spectrum of complex glaucoma management:
+  - **Comprehensive Glaucoma Surgery:** Extensive experience in both Moorfields and BMEC with **classical traditional advanced glaucoma surgeries**, including **Trabeculectomy** and various **Glaucoma Tube Shunt Surgeries** (such as Paul, Baerveldt, Ahmed, and PreserFlo), ensuring expertise in the most complex and long-term surgical solutions.
+  - **Specialised Surgical Focus:** Gained further specialist training in complex case management, including **extensive novel angle surgery** — the latest approaches to treating glaucoma via the eye's drainage angle — alongside deep experience in **glaucoma surgery wound healing** (a critical factor in long-term success).
+
+#### Academic Excellence
+
+Mr. Khalili's practice is built on extensive research at the **UCL Institute of Ophthalmology** (a double 5-star research centre) and innovative **ocular drug delivery** systems developed at the **UCL School of Pharmacy**. This rigorous background translates directly into optimised long-term surgical outcomes and advanced medical management for you.
+
+### Awards & Recognition
+
+- **A M Cook Prize (2011):** Awarded for the **Best PhD Thesis** at UCL School of Pharmacy, recognising academic excellence and contribution to pharmaceutical science.
+- **Moorfields' Star Award (Nov 2015):** Recognition of exceptional patient care and clinical service delivery within the world-renowned hospital.
+
+This unparalleled combination of training and research enables Mr. Khalili to provide care that is **advanced, evidence-based, and highly individualised** for your specific risks and disease characteristics.
+
+### Why Choose Private Care with Mr. Khalili?
+
+When you choose private consultation, you invest in **time, technology, and guaranteed access** to world-leading expertise.
+
+| Benefit | What This Means for You |
+|---|---|
+| **Bypass NHS Limitations** | **Secured appointments** and surgical slots — avoiding the long waits and frequent cancellations common in the NHS. |
+| **Personalised Care Plan** | An **evidence-based approach** is used to formulate a highly individualised care plan, taking into account your specific risks and the nature of your disease. |
+| **Dedicated Time and Clarity** | Consultations are held **without the time pressure of NHS care**. We take the time to thoroughly **explain the findings** and collaboratively formulate your treatment strategy. |
+| **Advanced Surgical Options** | Access to surgical advancements beyond routine NHS capacity. This includes **premium intraocular lenses (IOLs)** for cataract correction (e.g. multifocal or toric lenses) and newer, minimally-invasive **glaucoma devices (MIGS)**. |
+| **True Continuity of Care** | You are seen by the **same Glaucoma/Cataract Consultant** at every step, from diagnosis through recovery, ensuring a consistent and trusted care pathway. |
+
+**Ensure your sight is in the hands of a consultant whose practice is built on the future of eye medicine.**
+
+**Contact us today to schedule your private consultation.**

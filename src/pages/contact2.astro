@@ -1,0 +1,42 @@
+---
+import BaseLayout from "@components/base/BaseLayout.astro";
+import PageHeader from "@components/common/PageHeader.astro";
+import ContactFormFormspree from "@components/contact/ContactFormFormspree";
+---
+
+<BaseLayout title="Contact — Formspree" description="Contact Mr. Ashkan Khalili.">
+  <PageHeader title="Contact" />
+  <section class="section-sm">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="md:col-10 lg:col-8">
+
+          <div class="glass rounded-xl p-8 mb-8 intersect:animate-fadeUp opacity-0 intersect-no-queue">
+            <h2 class="text-lg font-bold text-txt-p dark:text-darkmode-txt-p mb-4">Get in Touch</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-txt-s dark:text-darkmode-txt-s">
+              <div>
+                <p class="font-semibold text-txt-p dark:text-darkmode-txt-p mb-1">NHS Enquiries</p>
+                <p>East Sussex Healthcare NHS Trust</p>
+                <a href="mailto:a.khalili@nhs.net" class="hover:underline">a.khalili@nhs.net</a>
+              </div>
+              <div>
+                <p class="font-semibold text-txt-p dark:text-darkmode-txt-p mb-1">Private Appointments</p>
+                <a href="tel:+447908540070" class="hover:underline">0790 854 0070</a>
+                <p class="mt-1 text-xs">Monday – Friday, 9:00 – 17:00</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="intersect:animate-fadeUp opacity-0">
+            <ContactFormFormspree client:load />
+          </div>
+
+          <p class="mt-6 text-center text-xs text-txt-s dark:text-darkmode-txt-s">
+            Not for medical emergencies. If you have sudden vision loss or eye pain, call <strong>111</strong> or attend A&amp;E.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,95 @@
+---
+import BaseLayout from "@components/base/BaseLayout.astro";
+import PageHeader from "@components/common/PageHeader.astro";
+
+const options = [
+  {
+    number: "1",
+    title: "EmailJS",
+    url: "/contact1",
+    setup: "Sign up at emailjs.com → create a service, template, and copy 3 keys into ContactFormEmailJS.tsx",
+    pros: ["No backend required", "Sends email directly from browser", "200 free emails/month", "Full control over email template"],
+    cons: ["API keys visible in client bundle", "Monthly limit on free tier"],
+  },
+  {
+    number: "2",
+    title: "Formspree",
+    url: "/contact2",
+    setup: "Sign up at formspree.io → create a form → paste the form ID into ContactFormFormspree.tsx",
+    pros: ["No backend required", "50 free submissions/month", "GDPR-compliant paid tier available", "Spam filtering built in"],
+    cons: ["Lower free tier limit (50/month)", "Redirects to Formspree on JS-disabled browsers"],
+  },
+  {
+    number: "3",
+    title: "Google Forms",
+    url: "/contact3",
+    setup: "Build your form at forms.google.com → Send → Embed → copy the src URL into contact3.astro",
+    pros: ["Completely free", "Responses go to Google Sheets", "Zero code required", "Works without JavaScript"],
+    cons: ["Cannot match site styling", "Responses stored on Google servers (GDPR consideration)", "Limited customisation"],
+  },
+];
+---
+
+<BaseLayout title="Contact" description="Contact Mr. Ashkan Khalili — choose your preferred form option.">
+  <PageHeader title="Contact" />
+  <section class="section-sm">
+    <div class="container">
+      <div class="row justify-center mb-10">
+        <div class="md:col-10 lg:col-8 text-center">
+          <p class="text-txt-s dark:text-darkmode-txt-s">
+            Three form implementations are available below. Try each one and keep the version that suits you best,
+            then update the <strong>Contact</strong> nav link in <code>Header.astro</code> to point to it.
+          </p>
+        </div>
+      </div>
+
+      <div class="row justify-center gap-y-6">
+        {options.map(opt => (
+          <div class="md:col-10 lg:col-8">
+            <div class="glass rounded-xl p-6 intersect:animate-fadeUp opacity-0">
+              <div class="flex items-start justify-between gap-4 mb-4">
+                <div>
+                  <span class="text-xs font-semibold uppercase tracking-widest text-txt-s dark:text-darkmode-txt-s">Option {opt.number}</span>
+                  <h2 class="text-xl font-bold text-txt-p dark:text-darkmode-txt-p">{opt.title}</h2>
+                </div>
+                <a href={opt.url}
+                  class="shrink-0 rounded-lg bg-slate-800 hover:bg-slate-700 text-white text-sm font-semibold px-4 py-2 transition">
+                  Try it →
+                </a>
+              </div>
+
+              <p class="text-xs text-txt-s dark:text-darkmode-txt-s mb-4">
+                <span class="font-semibold">Setup: </span>{opt.setup}
+              </p>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p class="font-semibold text-green-600 dark:text-green-400 mb-1">Pros</p>
+                  <ul class="space-y-1">
+                    {opt.pros.map(p => <li class="text-txt-s dark:text-darkmode-txt-s before:content-['✓'] before:mr-2 before:text-green-500">{p}</li>)}
+                  </ul>
+                </div>
+                <div>
+                  <p class="font-semibold text-red-500 dark:text-red-400 mb-1">Cons</p>
+                  <ul class="space-y-1">
+                    {opt.cons.map(c => <li class="text-txt-s dark:text-darkmode-txt-s before:content-['✗'] before:mr-2 before:text-red-400">{c}</li>)}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="row justify-center mt-8">
+        <div class="md:col-10 lg:col-8">
+          <p class="text-center text-xs text-txt-s dark:text-darkmode-txt-s">
+            Once decided, delete the two unused page files and component files, rename the chosen page to
+            <code>contact.astro</code>, and remove this comparison page.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</BaseLayout>
