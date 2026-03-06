@@ -3,9 +3,10 @@ import emailjs from "@emailjs/browser";
 import { FaPaperPlane, FaCheckCircle, FaExclamationCircle, FaStar } from "react-icons/fa";
 
 // ── EmailJS credentials ──────────────────────────────────────────────────────
-const SERVICE_ID  = "YOUR_SERVICE_ID";   // EmailJS → Email Services
-const TEMPLATE_ID = "YOUR_TEMPLATE_ID";  // EmailJS → Email Templates
-const PUBLIC_KEY  = "YOUR_PUBLIC_KEY";   // EmailJS → Account → Public Key
+const SERVICE_ID             = "service_8fanqea";
+const TEMPLATE_NOTIFICATION  = "template_touso6e"; // → sends to Dr. Khalili
+const TEMPLATE_ACKNOWLEDGEMENT = "template_j8dn1uv"; // → sends to patient
+const PUBLIC_KEY             = "njuqtkIEBj178kydA";
 // ────────────────────────────────────────────────────────────────────────────
 
 type Status = "idle" | "submitting" | "success" | "error";
@@ -56,7 +57,8 @@ export default function ContactFormEmailJS() {
     }
     setStatus("submitting"); setError("");
     try {
-      await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current!, PUBLIC_KEY);
+      await emailjs.sendForm(SERVICE_ID, TEMPLATE_NOTIFICATION,   formRef.current!, PUBLIC_KEY);
+      await emailjs.sendForm(SERVICE_ID, TEMPLATE_ACKNOWLEDGEMENT, formRef.current!, PUBLIC_KEY);
       setStatus("success"); setRatings(INIT); setEnquiry(""); setFormKey(k => k + 1);
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");

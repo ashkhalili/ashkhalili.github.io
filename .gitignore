@@ -78,6 +78,9 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+# EmailJS templates (reference only, managed in EmailJS dashboard)
+emailjs-template-*.html
+
 # build output
 dist/
 .output/
