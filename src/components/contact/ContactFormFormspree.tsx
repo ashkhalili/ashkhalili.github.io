@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import { FaPaperPlane, FaCheckCircle, FaExclamationCircle, FaStar } from "react-icons/fa";
 
 // ── Formspree credentials ────────────────────────────────────────────────────
-const FORMSPREE_ID = "YOUR_FORM_ID"; // Formspree → your form ID, e.g. "xpwzgkjd"
+const FORMSPREE_ID = "xlgpedab"; // Formspree → your form ID, e.g. "xpwzgkjd"
 // ────────────────────────────────────────────────────────────────────────────
 
 type Status = "idle" | "submitting" | "success" | "error";
