@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@components/base/BaseLayout.astro";
 import PageHeader from "@components/common/PageHeader.astro";
+import ContactCard from "@components/index-cards/ContactCard";
 
 const options = [
   {
@@ -34,6 +35,12 @@ const options = [
   <PageHeader title="Contact" />
   <section class="section-sm">
     <div class="container">
+      <div class="row justify-center mb-10">
+        <div class="md:col-8 lg:col-6">
+          <ContactCard />
+        </div>
+      </div>
+
       <div class="row justify-center mb-10">
         <div class="md:col-10 lg:col-8 text-center">
           <p class="text-txt-s dark:text-darkmode-txt-s">
@@ -86,6 +93,35 @@ const options = [
           <p class="text-center text-xs text-txt-s dark:text-darkmode-txt-s">
             Once decided, delete the two unused page files and component files, rename the chosen page to
             <code>contact.astro</code>, and remove this comparison page.
+          </p>
+        </div>
+      </div>
+
+      <!-- Location map -->
+      <div class="row justify-center mt-12">
+        <div class="md:col-10 lg:col-8">
+          <h2 class="text-xl font-bold text-txt-p dark:text-darkmode-txt-p mb-4 text-center">
+            Find Us — Sussex Premier Health
+          </h2>
+          <div class="glass rounded-xl overflow-hidden shadow-lg intersect:animate-fadeUp opacity-0">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2517.0705403337092!2d0.562241977125788!3d50.88540477167871!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47df1a7da47f1903%3A0x36cb75b14928a24b!2sSussex%20Premier%20Health!5e0!3m2!1sen!2suk!4v1794657816279!5m2!1sen!2suk"
+              title="Map showing Sussex Premier Health"
+              class="block w-full h-[320px] md:h-[450px] border-0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin"
+            ></iframe>
+          </div>
+          <p class="text-center text-sm mt-3">
+            <a
+              href="https://maps.app.goo.gl/oYT6YyVzk73Di9rh6"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:underline text-txt-s dark:text-darkmode-txt-s"
+            >
+              Open in Google Maps →
+            </a>
           </p>
         </div>
       </div>

@@ -5,6 +5,8 @@ import Pagination from "@components/common/Pagination.astro";
 import PageHeader from "@components/common/PageHeader.astro";
 import BlogSidebar from "@components/blog/Sidebar.astro";
 import type { BlogEntry } from "@/types";
+import { upperHumanize } from "@lib/textConverter";
+import { FaRegFolder } from "react-icons/fa";
 
 interface Props {
   entryIndex: BlogEntry;
@@ -34,6 +36,30 @@ const {
       <div class="row px-0 mx-0 w-full">
         <!-- blog posts -->
         <div class="col-12 lg:col-8 lg:p-0">
+          <!-- categories row: shown only when the sidebar is hidden -->
+          <nav aria-label="Blog categories" class="lg:hidden glass rounded-lg p-4 m-2 mb-6">
+            <a href="/blog/categories" class="flex items-center gap-2 font-semibold mb-3 text-txt-p dark:text-darkmode-txt-p">
+              <FaRegFolder className="-mt-0.5" />
+              Categories
+            </a>
+            <ul class="flex flex-wrap gap-2">
+              {
+                categories.map((category) => {
+                  const count = allCategories.filter((c) => c === category).length;
+                  return (
+                    <li>
+                      <a
+                        href={`/blog/categories/${category}`}
+                        class="inline-block rounded-full border border-border dark:border-darkmode-border px-3 py-1 text-sm hover:bg-bg-s dark:hover:bg-darkmode-bg-s transition"
+                      >
+                        {upperHumanize(category)} <span class="opacity-70">({count})</span>
+                      </a>
+                    </li>
+                  );
+                })
+              }
+            </ul>
+          </nav>
           {
             entries.map((entry) => (
               <div class="mb-4">
@@ -48,14 +74,16 @@ const {
           />
         </div>
         <!-- sidebar -->
-        <div
-          class="hidden lg:col-4 lg:flex max-h-static_sidemenu sticky p-0 pl-4 top-[4rem]"
-        >
-          <BlogSidebar
-            tags={tags}
-            categories={categories}
-            allCategories={allCategories}
-          />
+        <!-- Positioned absolutely so its height is capped at the post list's
+             height; it scrolls internally if its content is taller. -->
+        <div class="hidden lg:block lg:col-4 relative p-0">
+          <div class="absolute inset-0 pl-4">
+            <BlogSidebar
+              tags={tags}
+              categories={categories}
+              allCategories={allCategories}
+            />
+          </div>
         </div>
       </div>
     </div>

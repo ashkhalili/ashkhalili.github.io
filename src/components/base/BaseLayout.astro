@@ -20,7 +20,7 @@ export interface Props {
 const { title, description, image, noindex, canonical } = Astro.props;
 
 const siteTitle = "Ashkan Khalili";
-const siteDescription = "Glaucoma consultant, East Sussex Healthcare NHS Trust (ESHT)";
+const siteDescription = "Glaucoma consultant, Sussex Premier Health";
 const siteImage = "@assets/og-image.png";
 const siteAuthor = "Ashkan Khalili";
 const baseUrl = "https://ashkhalili.github.io";
@@ -30,6 +30,9 @@ const baseUrl = "https://ashkhalili.github.io";
 <html lang="en">
   <head>
     <!-- favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+    <link rel="icon" href="/favicon/favicon.ico" sizes="48x48" />
+    <link rel="manifest" href="/site.webmanifest" />
     <link
       rel="apple-touch-icon"
       sizes="180x180"

@@ -1,9 +1,185 @@
-<style>
+---
+/*
+  Decorative, eye-themed background. Everything sits near the page edges at
+  low contrast so the reading area in the middle stays clean.
+    - top right: iris (concentric rings + radial fibres)
+    - bottom left: visual-field test grid (24-2 style dots + axes)
+    - bottom: OCT-style retinal layer lines with a foveal dip
+    - whole page: fine dot texture that fades out towards the centre
+*/
+
+// Iris fibres: radial strokes between the pupil and the outer iris
+const fibres = Array.from({ length: 72 }, (_, i) => {
+  const a = (i / 72) * Math.PI * 2;
+  const r1 = 62 + (i % 3) * 6;
+  const r2 = 160 + ((i * 7) % 5) * 8;
+  return {
+    x1: 300 + r1 * Math.cos(a),
+    y1: 300 + r1 * Math.sin(a),
+    x2: 300 + r2 * Math.cos(a),
+    y2: 300 + r2 * Math.sin(a),
+  };
+});
+
+// Visual field: points on a 6-unit grid inside a circle (like a 24-2 test)
+const fieldDots: { x: number; y: number; r: number }[] = [];
+for (let gx = -27; gx <= 27; gx += 6) {
+  for (let gy = -21; gy <= 21; gy += 6) {
+    if (gx * gx + gy * gy <= 27 * 27) {
+      // Vary dot size a little so it reads like a sensitivity plot
+      const r = 1.6 + (((gx * 13 + gy * 7) % 5) + 5) % 5 * 0.35;
+      fieldDots.push({ x: 150 + gx * 4.5, y: 150 + gy * 4.5, r });
+    }
+  }
+}
+
+// OCT retinal layers: wavy lines with a dip in the middle (the fovea)
+const octLayers = Array.from({ length: 6 }, (_, i) => {
+  const base = 60 + i * 18;
+  const dip = Math.max(0, 46 - i * 9);
+  const pts: string[] = [];
+  for (let x = 0; x <= 1200; x += 20) {
+    const fovea = dip * Math.exp(-Math.pow((x - 600) / 110, 2));
+    const wave = Math.sin(x / 90 + i) * 3;
+    pts.push(`${x},${(base + fovea + wave).toFixed(1)}`);
+  }
+  return "M" + pts.join(" L");
+});
+---
+
+<div class="site-bg" aria-hidden="true">
+  <div class="site-bg__dots"></div>
+
+  <svg class="site-bg__iris" viewBox="0 0 600 600">
+    <g fill="none" stroke="currentColor">
+      <circle cx="300" cy="300" r="290" stroke-width="2.5" />
+      <circle cx="300" cy="300" r="230" stroke-width="2" stroke-dasharray="3 7" />
+      <circle cx="300" cy="300" r="190" stroke-width="2" />
+      <circle cx="300" cy="300" r="110" stroke-width="2.5" />
+      <circle cx="300" cy="300" r="55" stroke-width="2" />
+      {fibres.map((f) => (
+        <line x1={f.x1} y1={f.y1} x2={f.x2} y2={f.y2} stroke-width="1.4" />
+      ))}
+    </g>
+  </svg>
+
+  <svg class="site-bg__field" viewBox="0 0 300 300">
+    <g fill="none" stroke="currentColor" stroke-width="1.8">
+      <circle cx="150" cy="150" r="130" />
+      <circle cx="150" cy="150" r="90" stroke-dasharray="3 5" />
+      <circle cx="150" cy="150" r="45" stroke-dasharray="3 5" />
+      <line x1="10" y1="150" x2="290" y2="150" />
+      <line x1="150" y1="10" x2="150" y2="290" />
+    </g>
+    <g fill="currentColor">
+      {fieldDots.map((d) => <circle cx={d.x} cy={d.y} r={d.r} />)}
+    </g>
+  </svg>
+
+  <svg class="site-bg__oct" viewBox="0 0 1200 200" preserveAspectRatio="none">
+    <g fill="none" stroke="currentColor" stroke-width="2" vector-effect="non-scaling-stroke">
+      {octLayers.map((d) => <path d={d} />)}
+    </g>
+  </svg>
+</div>
+
+<style is:global>
   html {
-    background-color: #fff; /* matches body bg-bg-p */
+    background-color: #fff; /* matches bg-bg-p */
   }
 
   html.dark {
-    background-color: #222; /* matches body dark:bg-darkmode-bg-p */
+    background-color: #222; /* matches darkmode-bg-p */
+  }
+
+  /* Let the decorative layer show through the page body */
+  body {
+    background-color: transparent !important;
+  }
+
+  .site-bg {
+    --bg-ink: #0f5c63;
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+    color: var(--bg-ink);
+    background:
+      radial-gradient(55rem 38rem at 0% 0%, rgba(42, 154, 163, 0.16), transparent 60%),
+      radial-gradient(50rem 38rem at 100% 100%, rgba(70, 120, 200, 0.13), transparent 60%),
+      radial-gradient(30rem 22rem at 100% 15%, rgba(42, 154, 163, 0.08), transparent 70%),
+      #fff;
+  }
+
+  html.dark .site-bg {
+    --bg-ink: #7fd3d9;
+    background:
+      radial-gradient(55rem 38rem at 0% 0%, rgba(42, 154, 163, 0.20), transparent 60%),
+      radial-gradient(50rem 38rem at 100% 100%, rgba(70, 120, 200, 0.16), transparent 60%),
+      radial-gradient(30rem 22rem at 100% 15%, rgba(42, 154, 163, 0.10), transparent 70%),
+      #222;
+  }
+
+  /* Fine dot texture, faded out in the middle where content sits */
+  .site-bg__dots {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(currentColor 1.3px, transparent 1.8px);
+    background-size: 22px 22px;
+    opacity: 0.12;
+    -webkit-mask-image: radial-gradient(ellipse 55% 60% at 50% 45%, transparent 35%, #000 100%);
+    mask-image: radial-gradient(ellipse 55% 60% at 50% 45%, transparent 35%, #000 100%);
+  }
+
+  .site-bg__iris {
+    position: absolute;
+    top: -11rem;
+    right: -11rem;
+    width: 40rem;
+    height: 40rem;
+    opacity: 0.12;
+  }
+
+  .site-bg__field {
+    position: absolute;
+    left: -3rem;
+    bottom: 6rem;
+    width: 20rem;
+    height: 20rem;
+    opacity: 0.11;
+  }
+
+  .site-bg__oct {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1rem;
+    width: 100%;
+    height: 10rem;
+    opacity: 0.10;
+  }
+
+  html.dark .site-bg__dots { opacity: 0.10; }
+  html.dark .site-bg__iris { opacity: 0.10; }
+  html.dark .site-bg__field { opacity: 0.09; }
+  html.dark .site-bg__oct { opacity: 0.09; }
+
+  @media (max-width: 640px) {
+    .site-bg__iris {
+      top: -8rem;
+      right: -10rem;
+      width: 26rem;
+      height: 26rem;
+    }
+    .site-bg__field {
+      left: -5rem;
+      bottom: 4rem;
+      width: 13rem;
+      height: 13rem;
+    }
+    .site-bg__oct {
+      height: 6rem;
+    }
   }
 </style>

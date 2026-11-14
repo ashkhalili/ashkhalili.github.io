@@ -1,7 +1,7 @@
 ---
 title: Ashkan Khalili
 description: Glaucoma and cataract consultant offering advanced, evidence-based ophthalmic care driven by world-class research and surgical expertise.
-image: "@assets/profile/ashkan-khalili.jpg"
+image: "@assets/profile/about.jpeg"
 draft: false
 ---
 

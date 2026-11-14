@@ -1,16 +1,24 @@
 ---
 import BaseLayout from "@components/base/BaseLayout.astro";
 import { markdownify } from "@lib/textConverter";
-import Button from "@components/common/Button.astro";
 import type { HomeEntry } from "@/types";
 import { Image } from "astro:assets";
+import { FaWhatsapp, FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import { contact } from "@components/index-cards/ContactCard";
 
 interface Props {
   entry: HomeEntry;
 }
 
 const { entry } = Astro.props;
-const { image, imageAlt, title, content, button } = entry.data;
+const { image, imageAlt, title, content } = entry.data;
+
+const contactLinks = [
+  { label: "WhatsApp", href: contact.whatsapp, Icon: FaWhatsapp, external: true },
+  { label: `Call ${contact.phoneDisplay}`, href: `tel:${contact.phoneTel}`, Icon: FaPhone, external: false },
+  { label: `Email ${contact.email}`, href: `mailto:${contact.email}`, Icon: FaEnvelope, external: false },
+  { label: contact.locationName, href: contact.locationUrl, Icon: FaMapMarkerAlt, external: true },
+];
 ---
 
 <BaseLayout>
@@ -23,10 +31,10 @@ const { image, imageAlt, title, content, button } = entry.data;
             image && (
               <div class="blur-[0px]">
                 <Image
-                class="mb-6 w-64"
+                class="mx-auto mb-6 w-64 aspect-[3/4] object-cover rounded-3xl shadow-lg"
                 src={image}
                 alt={imageAlt}
-                width={1024}
+                width={768}
                 height={1024}
                 loading="eager"
               />
@@ -36,17 +44,23 @@ const { image, imageAlt, title, content, button } = entry.data;
           }
           <h1 set:html={markdownify(title)} class="mb-4" />
           <p set:html={markdownify(content)} class="mb-8" />
-          {
-            button && (
-              <Button
-                label={button.label}
-                link={button.link}
-                newtab
-                hoverInvert
-                color=""
-              />
-            )
-          }
+          <ul class="flex flex-wrap justify-center gap-4">
+            {
+              contactLinks.map(({ label, href, Icon, external }) => (
+                <li>
+                  <a
+                    href={href}
+                    aria-label={label}
+                    title={label}
+                    {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                    class="glass flex items-center justify-center w-14 h-14 rounded-full shadow-md text-2xl text-txt-p dark:text-darkmode-txt-p transition hover:scale-110 hover:text-[#0f5c63] dark:hover:text-[#7fd3d9]"
+                  >
+                    <Icon />
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
         </div>
       </div>
     </div>
